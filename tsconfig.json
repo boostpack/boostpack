@@ -8,6 +8,9 @@
     },
     {
       "path": "./packages/shared/error"
+    },
+    {
+      "path": "./packages/shared/exception"
     }
   ]
 }
