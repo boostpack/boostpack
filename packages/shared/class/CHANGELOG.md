@@ -1,3 +1,17 @@
+# 2.0.0 (2026-02-14)
+
+### 🚀 Features
+
+- ⚠️  **@boostpack/class:** add @boostpack/class package ([e5c45eb](https://github.com/boostpack/boostpack/commit/e5c45eb))
+
+### ⚠️  Breaking Changes
+
+- **@boostpack/class:** add @boostpack/class package  ([e5c45eb](https://github.com/boostpack/boostpack/commit/e5c45eb))
+
+### ❤️ Thank You
+
+- Timur Popov @Timur2915
+
 # 1.0.0 (2026-02-14)
 
 ### 🚀 Features

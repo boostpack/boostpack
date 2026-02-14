@@ -1,6 +1,6 @@
 {
   "name": "@boostpack/error",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -25,7 +25,9 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "tags": ["scope:shared"]
+    "tags": [
+      "scope:shared"
+    ]
   },
   "dependencies": {}
 }
