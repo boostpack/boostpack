@@ -1,0 +1,51 @@
+{
+  "name": "@boostpack/exception",
+  "version": "0.0.1",
+  "description": "Type-safe exception system with RFC 9457 Problem Details support",
+  "license": "MIT",
+  "contributors": [
+    "Timur Popov <timur2915@gmail.com>",
+    "Alexey Temnov <temnov.aleksei@gmail.com>",
+    "Nikita Mejenkov <mejenkovnik@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boostpack/boostpack.git",
+    "directory": "packages/shared/exception"
+  },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.esm.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@boostpack/source": "./src/index.ts",
+      "types": "./dist/index.esm.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.esm.js"
+    }
+  },
+  "keywords": [
+    "boostpack",
+    "exception",
+    "error",
+    "typescript",
+    "type-safe",
+    "type-safety",
+    "rfc9457",
+    "problem",
+    "problem-details"
+  ],
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "tags": ["scope:shared"]
+  },
+  "dependencies": {
+    "@boostpack/class": "^2.0.0",
+    "@boostpack/error": "^1.0.0"
+  }
+}
