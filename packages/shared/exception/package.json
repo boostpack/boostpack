@@ -1,6 +1,6 @@
 {
   "name": "@boostpack/exception",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Type-safe exception system with RFC 9457 Problem Details support",
   "license": "MIT",
   "contributors": [
@@ -42,7 +42,9 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "tags": ["scope:shared"]
+    "tags": [
+      "scope:shared"
+    ]
   },
   "dependencies": {
     "@boostpack/class": "^2.0.0",
