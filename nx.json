@@ -50,16 +50,15 @@
   ],
   "release": {
     "projects": ["packages/*/*"],
+    "projectsRelationship": "independent",
     "version": {
       "preVersionCommand": "nx run-many -t build",
       "conventionalCommits": true,
       "fallbackCurrentVersionResolver": "disk"
     },
-    "conventionalCommits": {
-      "useCommitScope": false
-    },
     "changelog": {
       "automaticFromRef": true,
+      "workspaceChangelog": false,
       "projectChangelogs": true
     }
   },
