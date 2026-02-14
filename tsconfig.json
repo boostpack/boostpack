@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./packages/shared/class"
+    },
+    {
+      "path": "./packages/shared/error"
     }
   ]
 }
