@@ -1,0 +1,126 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - next
+      - '[0-9]+.x'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npx nx run-many -t build
+
+      - uses: actions/cache/save@v4
+        with:
+          path: .nx/cache
+          key: nx-release-${{ github.sha }}
+
+  lint:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+          cache: 'npm'
+
+      - run: npm ci
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: .nx/cache
+          key: nx-release-${{ github.sha }}
+
+      - run: npx nx run-many -t lint
+
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+          cache: 'npm'
+
+      - run: npm ci
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: .nx/cache
+          key: nx-release-${{ github.sha }}
+
+      - run: npx nx run-many -t test
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: .nx/cache
+          key: nx-release-${{ github.sha }}
+
+      - run: git config user.name "github-actions[bot]"
+      - run: git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Resolve release channel
+        id: channel
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+          if [[ "$BRANCH" == "main" ]]; then
+            echo "tag=latest" >> "$GITHUB_OUTPUT"
+            echo "preid=" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == "next" ]]; then
+            echo "tag=next" >> "$GITHUB_OUTPUT"
+            echo "preid=next" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=$BRANCH" >> "$GITHUB_OUTPUT"
+            echo "preid=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Version
+        run: |
+          if [[ -n "${{ steps.channel.outputs.preid }}" ]]; then
+            npx nx release version prerelease --preid=${{ steps.channel.outputs.preid }} --skip-publish --yes
+          else
+            npx nx release --skip-publish --yes
+          fi
+
+      - run: git push --follow-tags
+
+      - name: Publish
+        run: npx nx release publish --tag=${{ steps.channel.outputs.tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
