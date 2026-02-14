@@ -3,6 +3,9 @@ name: CI
 on:
   pull_request:
 
+env:
+  NX_DAEMON: false
+
 permissions:
   actions: read
   contents: read
@@ -19,7 +22,8 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
-      - run: npx nx run-many -t build
+      - run: echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
+      - run: nx run-many --verbose -t build
 
       - uses: actions/cache/save@v4
         with:
@@ -38,13 +42,14 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+      - run: echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
 
       - uses: actions/cache/restore@v4
         with:
           path: .nx/cache
           key: nx-${{ github.sha }}
 
-      - run: npx nx run-many -t lint
+      - run: nx run-many --verbose -t lint
 
   test:
     needs: lint
@@ -58,10 +63,11 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+      - run: echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
 
       - uses: actions/cache/restore@v4
         with:
           path: .nx/cache
           key: nx-${{ github.sha }}
 
-      - run: npx nx run-many -t test
+      - run: nx run-many --verbose -t test
