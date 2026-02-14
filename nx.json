@@ -52,12 +52,14 @@
     "projects": ["packages/*/*"],
     "version": {
       "preVersionCommand": "nx run-many -t build",
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "fallbackCurrentVersionResolver": "disk"
     },
     "conventionalCommits": {
       "useCommitScope": false
     },
     "changelog": {
+      "automaticFromRef": true,
       "projectChangelogs": true
     }
   },
