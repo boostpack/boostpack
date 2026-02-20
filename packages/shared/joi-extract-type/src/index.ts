@@ -1,0 +1,1 @@
+import './joi-extract-type';
