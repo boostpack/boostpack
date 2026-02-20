@@ -29,6 +29,10 @@ export default [
               onlyDependOnLibsWithTags: ['scope:shared', 'scope:backend'],
             },
             {
+              sourceTag: 'scope:nestjs',
+              onlyDependOnLibsWithTags: ['scope:shared', 'scope:nestjs'],
+            },
+            {
               sourceTag: 'scope:frontend',
               onlyDependOnLibsWithTags: ['scope:shared', 'scope:frontend'],
             },
