@@ -149,6 +149,28 @@ throw new NotImplementedException({ detail: 'Feature not available yet' });
 throw new ForbiddenException({ detail: 'Insufficient permissions' });
 ```
 
+### JSON-RPC error code
+
+Attach a JSON-RPC error code to an exception class via the `jsonRpcCode` option. Useful for WebSocket/JSON-RPC APIs where each exception type maps to a numeric code.
+
+```typescript
+import { Exception, ExceptionKind, BaseJsonRpcCode } from '@boostpack/exception';
+
+class InvalidOrderException extends Exception({
+  kind: ExceptionKind.Validation,
+  problemType: 'invalid_order',
+  jsonRpcCode: BaseJsonRpcCode.InvalidParams,
+}) {
+  constructor() {
+    super({ detail: 'Invalid order data' });
+  }
+}
+
+InvalidOrderException.jsonRpcCode; // -32602 (InvalidParams)
+```
+
+`BaseJsonRpcCode` provides the five standard JSON-RPC 2.0 codes: `ParseError` (-32700), `InvalidRequest` (-32600), `MethodNotFound` (-32601), `InvalidParams` (-32602), `InternalError` (-32603). Pass any `number` for custom codes.
+
 ### Utilities
 
 #### `ExceptionHttpStatusMapper`

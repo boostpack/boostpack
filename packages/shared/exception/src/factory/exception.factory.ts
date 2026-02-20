@@ -13,6 +13,7 @@ type Params<
   problemType?: string;
   title?: string;
   name?: ExceptionName;
+  jsonRpcCode?: number;
 };
 
 export function Exception<
@@ -25,6 +26,7 @@ export function Exception<
     problemType = 'internal_error',
     title,
     name: exceptionName,
+    jsonRpcCode,
   } = options;
 
   const ExceptionClass = class extends BaseException<DataType, ExceptionName> {
@@ -35,6 +37,7 @@ export function Exception<
     static readonly dataType = dataType;
     static readonly problemType = problemType;
     static readonly title = title;
+    static readonly jsonRpcCode = jsonRpcCode;
 
     constructor(props: Omit<ExceptionProps<DataType>, 'type'>) {
       const finalTitle = props.title || title;

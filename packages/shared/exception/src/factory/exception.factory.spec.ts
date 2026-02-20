@@ -38,6 +38,21 @@ describe('Exception factory', () => {
 
       expect(TestException.dataType).toBe(UserData);
     });
+
+    it('should set jsonRpcCode', () => {
+      const TestException = Exception({
+        kind: ExceptionKind.RateLimit,
+        jsonRpcCode: -32603,
+      });
+
+      expect(TestException.jsonRpcCode).toBe(-32603);
+    });
+
+    it('should leave jsonRpcCode undefined when not provided', () => {
+      const TestException = Exception({});
+
+      expect(TestException.jsonRpcCode).toBeUndefined();
+    });
   });
 
   describe('instance properties', () => {

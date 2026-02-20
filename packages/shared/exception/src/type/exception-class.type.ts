@@ -11,5 +11,6 @@ export type ExceptionClass<
   dataType: DataType;
   problemType: string;
   title?: string;
+  jsonRpcCode?: number;
   [ExceptionNameField]: ExceptionName;
 };
