@@ -1,6 +1,6 @@
 {
   "name": "@boostpack/nestjs-config",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Type-safe runtime configuration with Joi validation and schema-driven type inference",
   "license": "MIT",
   "contributors": [
@@ -50,7 +50,9 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "tags": ["scope:nestjs"]
+    "tags": [
+      "scope:nestjs"
+    ]
   },
   "peerDependencies": {
     "joi": ">=17.0.0"
