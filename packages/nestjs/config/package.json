@@ -1,0 +1,61 @@
+{
+  "name": "@boostpack/nestjs-config",
+  "version": "0.0.1",
+  "description": "Type-safe runtime configuration with Joi validation and schema-driven type inference",
+  "license": "MIT",
+  "contributors": [
+    "Timur Popov <timur2915@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boostpack/boostpack.git",
+    "directory": "packages/nestjs/config"
+  },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.esm.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@boostpack/source": "./src/index.ts",
+      "types": "./dist/index.esm.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.esm.js"
+    }
+  },
+  "keywords": [
+    "boostpack",
+    "config",
+    "configuration",
+    "nestjs",
+    "nest",
+    "joi",
+    "typescript",
+    "type-safe",
+    "type-safety",
+    "validation",
+    "environment",
+    "env",
+    "process-env",
+    "schema",
+    "runtime-validation",
+    "config-validation",
+    "mock",
+    "testing",
+    "type-inference"
+  ],
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "tags": ["scope:nestjs"]
+  },
+  "peerDependencies": {
+    "joi": ">=17.0.0"
+  },
+  "dependencies": {
+    "@boostpack/joi-extract-type": "^1.0.0"
+  }
+}
