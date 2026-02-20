@@ -1,6 +1,6 @@
 {
   "name": "@boostpack/joi-extract-type",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "TypeScript type extraction for Joi schemas via module augmentation",
   "license": "MIT",
   "contributors": [
@@ -38,7 +38,9 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "tags": ["scope:shared"]
+    "tags": [
+      "scope:shared"
+    ]
   },
   "peerDependencies": {
     "joi": ">=17.0.0"
