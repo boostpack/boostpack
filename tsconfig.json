@@ -11,6 +11,9 @@
     },
     {
       "path": "./packages/shared/exception"
+    },
+    {
+      "path": "./packages/shared/joi-extract-type"
     }
   ]
 }
