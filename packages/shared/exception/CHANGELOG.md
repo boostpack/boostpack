@@ -1,3 +1,18 @@
+## 1.1.1 (2026-02-25)
+
+### 🩹 Fixes
+
+- correct types path in package.json exports ([0e38223](https://github.com/boostpack/boostpack/commit/0e38223))
+
+### 🧱 Updated Dependencies
+
+- Updated @boostpack/class to 2.0.1
+- Updated @boostpack/error to 1.0.1
+
+### ❤️ Thank You
+
+- Timur Popov @Timur2915
+
 ## 1.1.0 (2026-02-20)
 
 ### 🚀 Features
