@@ -58,6 +58,6 @@
     "joi": ">=17.0.0"
   },
   "dependencies": {
-    "@boostpack/joi-extract-type": "^1.0.0"
+    "@boostpack/joi-extract-type": "^1.0.1"
   }
 }
