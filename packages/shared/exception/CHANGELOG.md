@@ -1,3 +1,13 @@
+## 1.1.2 (2026-02-27)
+
+### 🩹 Fixes
+
+- bump internal dependency versions ([5ad6021](https://github.com/boostpack/boostpack/commit/5ad6021))
+
+### ❤️ Thank You
+
+- Timur Popov @Timur2915
+
 ## 1.1.1 (2026-02-25)
 
 ### 🩹 Fixes
