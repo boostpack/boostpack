@@ -1,0 +1,65 @@
+{
+  "name": "@boostpack/nestjs-redis",
+  "version": "0.0.0",
+  "description": "NestJS Redis module with first-class standalone, sentinel and cluster support",
+  "license": "MIT",
+  "contributors": [
+    "Timur Popov <timur2915@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boostpack/boostpack.git",
+    "directory": "packages/nestjs/redis"
+  },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@boostpack/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.esm.js"
+    }
+  },
+  "keywords": [
+    "boostpack",
+    "redis",
+    "node-redis",
+    "nestjs",
+    "nest",
+    "cluster",
+    "sentinel",
+    "standalone",
+    "health",
+    "terminus",
+    "typescript",
+    "type-safe",
+    "type-safety"
+  ],
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "tags": [
+      "scope:nestjs"
+    ]
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=10.0.0",
+    "@nestjs/terminus": ">=11.0.0",
+    "redis": ">=5.0.0",
+    "joi": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/terminus": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@boostpack/nestjs-config": "^1.0.2"
+  }
+}
