@@ -1,6 +1,6 @@
 {
   "name": "@boostpack/nestjs-redis",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "NestJS Redis module with first-class standalone, sentinel and cluster support",
   "license": "MIT",
   "contributors": [
