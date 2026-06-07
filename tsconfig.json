@@ -17,6 +17,9 @@
     },
     {
       "path": "./packages/nestjs/config"
+    },
+    {
+      "path": "./packages/nestjs/redis"
     }
   ]
 }
